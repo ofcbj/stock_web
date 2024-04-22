@@ -16,6 +16,7 @@ class SectorView extends Component {
         sectorFinanceList: [],
         financeChartVisible: false,
         financeChartCompany: '',
+        financeChartData: null,
     }
 
     componentDidMount = () => {
@@ -101,6 +102,7 @@ class SectorView extends Component {
         console.log(companyName);
         this.onChangeValue('financeChartCompany', companyName);
         this.onChangeValue('financeChartVisible', true);
+        this.onChangeValue('financeChartData', this.getFinanceList(companyName));
     }    
 
     handleRequestError = (error) => {
@@ -193,13 +195,13 @@ class SectorView extends Component {
     }
 
     render() {
-        const { financeChartVisible, financeChartCompany } = this.state;
+        const { financeChartVisible, financeChartCompany, financeChartData } = this.state;
         return (
             <div>
                 <Drawer title={financeChartCompany} placement="right" closable={true} open={financeChartVisible} width={1200}
                     onClose={() => this.onChangeValue("financeChartVisible", false)} 
                 >
-                    <FinanceChart data={this.getFinanceList(financeChartCompany)} />
+                    <FinanceChart data={financeChartData} />
                 </Drawer>
                 {this.searchConditionRender()}
                 <Divider></Divider> 

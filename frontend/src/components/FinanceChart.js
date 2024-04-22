@@ -17,6 +17,15 @@ class FinanceChart extends Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.data !== this.props.data) {
+      this.charts.forEach(chart => {
+        chart.destroy();
+      });
+      this.createCharts();
+    }
+  }  
+
   createCharts() {
     const { data } = this.props;
 
