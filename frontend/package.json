@@ -1,0 +1,39 @@
+{
+  "name": "gui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^5.3.6",
+    "@antv/data-set": "^0.11.8",
+    "@antv/g2-brush": "^0.0.2",
+    "@antv/g2plot": "^2.4.31",
+    "antd": "^5.16.2",
+    "axios": "^1.6.8",
+    "bizcharts": "^4.1.23",
+    "bizcharts-plugin-slider": "^3.0.1",
+    "file-saver": "^2.0.5",
+    "fs": "^0.0.1-security",
+    "js-file-download": "^0.4.12",
+    "react": "^18.2.0",
+    "react-csv": "^2.2.2",
+    "react-dom": "^18.2.0",
+    "react-font-size-changer": "^0.2.0",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "^5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

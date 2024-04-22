@@ -1,0 +1,106 @@
+[{
+    "languagebutton" : "한글",
+    "colname" : {
+        "logtime" : "logtime",
+        "accountdbid" : "accountdbid",
+        "accountnickname" : "accountnickname",
+        "userdbid" : "userdbid",
+        "username" : "username",
+        "userlevel" : "userlevel",
+        "userclass" : "userclass",
+        "continentid" : "continentid",
+        "planetid" : "planetid"
+    },
+    "modal1" : {
+        "title" : "Alarm",
+        "p" : "Data Loading..."
+    },
+    "divider1" : {
+        "content" : "Search Requirement"
+    },
+    "switch1" : {
+        "check" : "Favorites",
+        "uncheck" : "All"
+    },
+    "b1" : "Table",
+    "b2" : "Search period",
+    "b3" : "From",
+    "b4" : "To",
+    "b5" : "Number of Searchs",
+    "b7" : "Download",
+    "b8" : "Change Table Size",
+    "b9" : "Change Num of Row",
+    "button1" : "Search",
+    "button2" : "XLS Download",
+    "button3" : "Download full data",
+    "button4" : "Download full data(with filter)",
+    "b6" : "Search target",
+    "select1" : {
+        "option1" : "Account Nickname",
+        "option2" : "Account ID",
+        "option3" : "Character ID",
+        "option4" : "Character Name"
+    },
+    "csvlink1" : {
+        "button" : "Download Table Data"
+    },
+    "filterdropdown" : {
+        "int" : {
+            "input1" : "Min",
+            "input2" : "Max"
+        }
+    }
+},
+{
+    "languagebutton" : "English",
+    "colname" : {
+        "logtime" : "시간",
+        "accountdbid" : "accountdbid",
+        "accountnickname" : "계정이름",
+        "userdbid" : "userdbid",
+        "username" : "캐릭터이름",
+        "userlevel" : "레벨",
+        "userclass" : "직업",
+        "continentid" : "continentid",
+        "planetid" : "서버id"
+    },
+    "modal1" : {
+        "title" : "알림",
+        "p" : "데이터를 가져오는 중입니다."
+    },
+    "divider1" : {
+        "content" : "검색 조건"
+    },
+    "switch1" : {
+        "check" : "즐겨찾기",
+        "uncheck" : "전체"
+    },
+    "b1" : "테이블",
+    "b2" : "검색 기간",
+    "b3" : "시작일",
+    "b4" : "종료일",
+    "b5" : "검색 개수",
+    "b7" : "다운로드",
+    "b8" : "테이블 크기 변경",
+    "b9" : "행 갯수 변경",
+    "button1" : "검색",
+    "button2" : "XLS 다운로드",
+    "button3" : "해당 기간 전체 데이터 다운로드",
+    "button4" : "필터 적용하여 해당 기간 전체 데이터 다운로드",
+    "b6" : "검색 대상",
+    "select1" : {
+        "option1" : "계정닉네임",
+        "option2" : "계정ID",
+        "option3" : "캐릭터ID",
+        "option4" : "캐릭터명"
+    },
+    "csvlink1" : {
+        "button" : "표 다운로드"
+    },
+    "filterdropdown" : {
+        "int" : {
+            "input1" : "최솟값",
+            "input2" : "최댓값"
+        }
+    }
+}]
