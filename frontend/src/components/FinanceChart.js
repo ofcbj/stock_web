@@ -7,17 +7,17 @@ class FinanceChart extends Component {
     this.chartRefs =  Array(4).fill().map(() => React.createRef());
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.createCharts();
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.charts.forEach(chart => {
       chart.destroy();
     });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate = (prevProps) => {
     if (prevProps.data !== this.props.data) {
       this.charts.forEach(chart => {
         chart.destroy();
@@ -26,7 +26,7 @@ class FinanceChart extends Component {
     }
   }  
 
-  createCharts() {
+  createCharts = () => {
     const { data } = this.props;
 
     const fields = ['revenue', 'capital', 'profit', 'earning']

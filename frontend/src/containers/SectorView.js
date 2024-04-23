@@ -118,7 +118,7 @@ class SectorView extends Component {
     }
 
     getFinanceList = (name) => {
-        const { sectorFinanceList } = this.state        
+        const { sectorFinanceList } = this.state
         const retRows = [];
         let found = false;
         for (let i = 0; i < sectorFinanceList.length; i++) {
