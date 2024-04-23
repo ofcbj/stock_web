@@ -19,6 +19,11 @@ class SectorView extends Component {
         financeChartData: null,
     }
 
+    constructor(props) {
+        super(props);
+        this.cardListRefs = {}
+    }
+
     componentDidMount = () => {
         this.requestSectorList().then(res => {
             this.setState({
@@ -84,8 +89,8 @@ class SectorView extends Component {
         })
     }
 
-    onChangeSector = (value) => {
-        this.requestSectorCompanyList(value['label']).then(res => {
+    onChangeSector = (sectorLabel) => {
+        this.requestSectorCompanyList(sectorLabel['label']).then(res => {
             this.setState({
                 sectorCompanyList : res['companyList'],
                 sectorFinanceList : res['financeList']
@@ -96,6 +101,13 @@ class SectorView extends Component {
                 behavior: "smooth"
             });
         })
+    }
+
+    onChangeCompany = (companyNameLabel) => {
+        const ref = this.cardListRefs[companyNameLabel['label']].current;
+        if (ref) {
+          ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }        
     }
 
     onFinanceChartClick = (companyName) => {
@@ -134,7 +146,7 @@ class SectorView extends Component {
     }    
 
     sectorCompanyRender = () => {
-          const columns = [
+        const columns = [
             { title: '년도',        dataIndex: 'year',  key: 'year'},            
             { title: '자산',        dataIndex: 'asset', key: 'asset'},
             { title: '부채',        dataIndex: 'liability', key: 'liability'},
@@ -151,7 +163,7 @@ class SectorView extends Component {
             { title: '매출현금흐름', dataIndex: 'operatingCashFlow', key: 'operatingCashFlow'},
             { title: '배당율',      dataIndex: 'dividend', key: 'dividend'},
             { title: '시총',        dataIndex: 'marketCap', key: 'marketCap'},
-          ];
+        ];
 
         const { sectorCompanyList } = this.state
 
@@ -161,8 +173,10 @@ class SectorView extends Component {
         for (i = 0; i < dataLen; i++) {
             let companyName = sectorCompanyList[i]
             let financeRows = this.getFinanceList(companyName)
-            cardList.push(<Card key={i} style={{marginBottom: 20}} title={companyName}
-                         extra = {<Button style={{marginLeft:10}} type="primary" icon={<BarChartOutlined />} onClick={() => this.onFinanceChartClick(companyName)}>차트보기</Button>}>
+            const ref = React.createRef();
+            this.cardListRefs[companyName] = ref;
+            cardList.push(<Card key={i} ref={ref} style={{marginBottom: 20}} title={companyName}
+                         extra = {<Button style={{marginRight:1300}} type="primary" icon={<BarChartOutlined />} onClick={() => this.onFinanceChartClick(companyName)}>차트보기</Button>}>
                 <Table dataSource={financeRows} columns={columns} pagination={false} />
             </Card>);
         }
@@ -172,7 +186,7 @@ class SectorView extends Component {
 
 
     searchConditionRender = () => {
-        const { sectorList } = this.state
+        const { sectorList, sectorCompanyList } = this.state
         if (sectorList === undefined){
             return
         }
@@ -187,6 +201,15 @@ class SectorView extends Component {
                         onChange={this.onChangeSector}>
                         {sectorList.map((sector, index) => (
                             <Option key={index}>{sector}</Option>
+                        ))}
+                    </Select>
+                    <Select 
+                        labelInValue={true}
+                        style={{width: 180, marginLeft: 10, marginTop: 10}} 
+                        defaultValue={{key: '0'}} 
+                        onChange={this.onChangeCompany}>
+                        {sectorCompanyList.map((companyName, index) => (
+                            <Option key={index}>{companyName}</Option>
                         ))}
                     </Select>
                 </Affix>
