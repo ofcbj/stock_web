@@ -30,11 +30,13 @@ class FinanceChart extends Component {
     const { data } = this.props;
 
     const fields = ['revenue', 'capital', 'profit', 'earning']
+    const colorSchemes = ['#003f5c', '#58508d', '#bc5090', '#ff6361']; 
     this.charts = fields.map((field, index) => {
       const chart = new Column(this.chartRefs[index].current, {
         data: data,
         xField: 'year',
         yField: field,
+        color: colorSchemes[index],
         label: {
           position: 'middle',
           style: {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Card, Modal, Button, Select, Affix, message, Table, Divider, Row, Col, Drawer } from 'antd'
-import { SearchOutlined, BarChartOutlined } from '@ant-design/icons'
+import { BarChartOutlined } from '@ant-design/icons'
 import configData from '../config.json'
 import '../custom.css'
 
@@ -14,6 +14,7 @@ class SectorView extends Component {
         sectorList: [],
         sectorCompanyList: [],
         sectorFinanceList: [],
+        selectedCompany: '',
         financeChartVisible: false,
         financeChartCompany: '',
         financeChartData: null,
@@ -93,7 +94,8 @@ class SectorView extends Component {
         this.requestSectorCompanyList(sectorLabel['label']).then(res => {
             this.setState({
                 sectorCompanyList : res['companyList'],
-                sectorFinanceList : res['financeList']
+                sectorFinanceList : res['financeList'],
+                selectedCompany : res['companyList'][0]
             })
 
             window.scrollTo({
@@ -104,6 +106,9 @@ class SectorView extends Component {
     }
 
     onChangeCompany = (companyNameLabel) => {
+        this.setState({
+            selectedCompany : companyNameLabel['label']
+        })        
         const ref = this.cardListRefs[companyNameLabel['label']].current;
         if (ref) {
           ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -186,7 +191,7 @@ class SectorView extends Component {
 
 
     searchConditionRender = () => {
-        const { sectorList, sectorCompanyList } = this.state
+        const { sectorList, sectorCompanyList, selectedCompany } = this.state
         if (sectorList === undefined){
             return
         }
@@ -207,6 +212,7 @@ class SectorView extends Component {
                         labelInValue={true}
                         style={{width: 180, marginLeft: 10, marginTop: 10}} 
                         defaultValue={{key: '0'}} 
+                        value={selectedCompany}                         
                         onChange={this.onChangeCompany}>
                         {sectorCompanyList.map((companyName, index) => (
                             <Option key={index}>{companyName}</Option>
