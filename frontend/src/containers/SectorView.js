@@ -176,7 +176,7 @@ class SectorView extends Component {
             const ref = React.createRef();
             this.cardListRefs[companyName] = ref;
             cardList.push(<Card key={i} ref={ref} style={{marginBottom: 20}} title={companyName}
-                         extra = {<Button style={{marginRight:100}} type="primary" icon={<BarChartOutlined />} onClick={() => this.onFinanceChartClick(companyName)}>차트보기</Button>}>
+                         extra = {<Button style={{marginRight:20}} type="primary" icon={<BarChartOutlined />} onClick={() => this.onFinanceChartClick(companyName)}>차트보기</Button>}>
                 <Table dataSource={financeRows} columns={columns} pagination={false} />
             </Card>);
         }
