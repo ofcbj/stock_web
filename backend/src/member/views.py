@@ -12,7 +12,6 @@ import re
 # Create your views here.
 gConn = None
 gCur = None
-table = 'members'
 
 def eunsureDbConn():
     global gConn
