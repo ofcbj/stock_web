@@ -1,7 +1,6 @@
 import os, json, zipfile
 import sqlite3
 import pandas as pd
-import pymysql
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse, FileResponse
